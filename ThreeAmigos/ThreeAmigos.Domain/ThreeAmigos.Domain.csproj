@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>54104658-c5dd-474f-99ba-f9ec54028120</ProjectGuid>
+    <ProjectGuid>{54104658-C5DD-474F-99BA-F9EC54028120}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ThreeAmigos.Domain</RootNamespace>
@@ -30,24 +30,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Account\Address.cs" />
+    <Compile Include="Account\AuthToken.cs" />
+    <Compile Include="Account\BasketItem.cs" />
+    <Compile Include="Account\BrowsingHistoryEntry.cs" />
+    <Compile Include="Account\Device.cs" />
+    <Compile Include="Account\Role.cs" />
+    <Compile Include="Account\ShoppingBasket.cs" />
+    <Compile Include="Account\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Store\ApiHealthStatus.cs" />
+    <Compile Include="Store\Brand.cs" />
+    <Compile Include="Store\Category.cs" />
+    <Compile Include="Store\DispatchResult.cs" />
+    <Compile Include="Store\GiftWrappingProduct.cs" />
+    <Compile Include="Store\GiftWrappingRange.cs" />
+    <Compile Include="Store\GiftWrappingType.cs" />
+    <Compile Include="Store\Order.cs" />
+    <Compile Include="Store\OrderLine.cs" />
+    <Compile Include="Store\Price.cs" />
+    <Compile Include="Store\Product.cs" />
+    <Compile Include="Store\SortDirection.cs" />
+    <Compile Include="Store\SupplierCode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -57,5 +71,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>

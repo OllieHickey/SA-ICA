@@ -3,87 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ThreeAmigos.Domain.Store;
+using ThreeAmigos.Interfaces;
+using ThreeAmigos.Models;
+using ThreeAmigos.Converters;
 
 namespace ThreeAmigos.Controllers
 {
     public class BrandController : Controller
     {
-        // GET: Brand
+        IStoreService _storeService;
+
+        public BrandController(IStoreService storeService)
+        {
+            _storeService = storeService;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<BrandViewModel> brands = _storeService.GetAllBrands().Select(x => Converter.ToBrandViewModel(x));
+
+            return View(brands);
         }
 
-        // GET: Brand/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Brand brand = _storeService.GetBrandById(id);
+            IEnumerable<ProductViewModel> products = _storeService.GetAllProducts().Select(x => Converter.ToProductViewModel(x));
+
+            BrandViewModel finalBrand = Converter.ToBrandViewModel(brand, products);
+
+            return View(finalBrand);
         }
 
-        // GET: Brand/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: Brand/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Brand/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Brand/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Brand/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Brand/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
