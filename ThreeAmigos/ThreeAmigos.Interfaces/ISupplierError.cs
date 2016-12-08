@@ -19,7 +19,6 @@ namespace ThreeAmigos.Interfaces
 
         /// <summary>
         /// Gets any additional information about the error.
-        ///// fry test
         /// </summary>
         string AdditionalInformation { get; }
     }
