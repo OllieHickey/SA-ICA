@@ -1,0 +1,63 @@
+﻿@model ThreeAmigos.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Html.DisplayFor(x => x.GivenName)'s Account Page</h2>
+
+<fieldset>
+    <div class="display-label">
+        Full Name:
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(x => x.GivenName) @Html.DisplayFor(x => x.FamilyName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(x => x.Telephone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(x => x.Telephone)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Username)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.RegistrationDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegistrationDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.AccountCreditAmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccountCreditAmount)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.Partial("_address", new { address = Model.Address })
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

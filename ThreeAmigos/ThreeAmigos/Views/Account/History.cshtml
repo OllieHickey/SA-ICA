@@ -1,0 +1,29 @@
+﻿@model ThreeAmigos.Models.UserViewModel
+
+@{
+    ViewBag.Title = "History";
+}
+
+<h2>@Html.Display(Model.GivenName)'s Browsing History</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.BrowsingHistory)
+    {
+        <tr>
+            <td>@item.Timestamp</td>
+            <td>@Html.ActionLink(item.Product.Name, "Details", "Product", new { area = "", id = item.Product.Id }, null)</td>
+            <td>@item.Device.DisplayName</td>
+        </tr>
+    }
+
+</table>

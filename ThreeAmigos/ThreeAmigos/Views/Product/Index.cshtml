@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ThreeAmigos.Models.ProductViewModel>
+
+@{
+    ViewBag.Title = "Search the Store!";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="products-banner-img">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="float-search-div">
+                            <h1 class="text-center">Search the Store!</h1>
+                            @using (Ajax.BeginForm("ProductsByMinMaxPrice", null, new AjaxOptions { UpdateTargetId = "productTable" }, new { id = "MinMax" }))
+                            {
+                                <div class="form-group">
+                                    <label for="minPrice">Minimum Price</label>
+                                    <input type="text" id="minPrice" name="minPrice" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="maxPrice">Maximum Price</label>
+                                    <input type="text" id="maxPrice" name="maxPrice" class="form-control" />
+                                </div>
+                                <div class="text-right">
+                                    <input form="MinMax" type="submit" class="btn btn-info submit-btn" value="Go" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Our Catalogue</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et turpis ex. Nam magna est, molestie eu
+                justo vitae, sagittis interdum lorem. Quisque sollicitudin elit eros, eget malesuada justo pharetra sit
+                amet. Suspendisse interdum sollicitudin rutrum. Aenean molestie ornare sapien, a consequat felis
+                vehicula non. Quisque tristique mi et leo egestas, at dictum ligula suscipit. Phasellus eleifend diam
+                a diam mattis, vitae scelerisque ligula vestibulum.
+            </p>
+            @{ Html.RenderPartial("_productTable", Model); }
+        </div>
+    </div>
+</div>

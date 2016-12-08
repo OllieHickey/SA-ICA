@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - ThreeAmigos Store</title>
+    @Styles.Render("~/Content/Bootstrap/bootstrap.css");
+    @Styles.Render("~/Content/Bootswatch/flatly/bootstrap.min.css");
+    @Styles.Render("~/Fonts/caviardreams_regular_macroman/stylesheet.css");
+    @Styles.Render("~/Fonts/caviardreams_bold_macroman/stylesheet.css");
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/toastr.css")
+    @Scripts.Render("~/Scripts/toastr.js")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @{
+        var authCookie = Request.Cookies["AuthToken"];
+        var adminCookie = Request.Cookies["AdminAccess"];
+    }
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Home", "Index")">ThreeAmigos</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    @if (authCookie != null)
+                    {
+                        <li>
+                            <div class="dropdown">
+                                <button type="button" data-toggle="dropdown">
+                                    My Account
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Account", "Index", "Account", new { area = "" }, null)</li>
+                                    <li>@Html.ActionLink("History", "History", "Account", new { area = "" }, null)</li>
+                                    @if (adminCookie != null && adminCookie.Value == "True")
+                                    {
+                                        <li>@Html.ActionLink("Admin", "Index", "Admin", new { area = "" }, null)</li> //TODO
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Log In", "LogIn", "Account", new { area = "" }, null)</li>
+                    }
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Browse", "Index", "Product", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Categories", "Index", "Category", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Brands", "Index", "Brand", new { area = "" }, null)</li>
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Account", "Index", "Account", new {area = ""}, null)</li>
+                                <li>@Html.ActionLink("History", "History", "Account", new {area = ""}, null)</li>
+                                @if (adminCookie != null && adminCookie.Value == "True")
+                                {
+                                    <li>@Html.ActionLink("Admin", "Index", "Admin", new {area = ""}, null)</li> //TODO
+                                }
+                            </ul>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/site.js")
+    @RenderSection("scripts", required: false)
+
+    @if (TempData["Error"] != null)
+    {
+        <script>
+            DisplayToastError('@(TempData["Error"])')
+        </script>
+    }
+
+</body>
+
+</html>
+

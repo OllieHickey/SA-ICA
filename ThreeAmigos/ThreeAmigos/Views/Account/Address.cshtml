@@ -1,0 +1,56 @@
+﻿@model ThreeAmigos.Models.AddressViewModel
+
+<fieldset>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.HouseNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HouseNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.HouseName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HouseName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.FirstLine)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstLine)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SecondLine)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SecondLine)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ThirdLine)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ThirdLine)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Town)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Town)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Postcode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Postcode)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
