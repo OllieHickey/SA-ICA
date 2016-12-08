@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ThreeAmigos.Integrations.DavisonStore
 {
-    public class Class1
-    {
-    }
+    public string Description { get; set; }
+
+    public int Id { get; set; }
+
+    public string Name { get; set; }
+}
 }

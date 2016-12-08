@@ -50,8 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="DavisonStoreAdapterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThreeAmigos.Integrations.DavisonStore\ThreeAmigos.Integrations.DavisonStore.csproj">
+      <Project>{6F8A3264-C9AF-4AC7-AF38-D9586635CC9B}</Project>
+      <Name>ThreeAmigos.Integrations.DavisonStore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
